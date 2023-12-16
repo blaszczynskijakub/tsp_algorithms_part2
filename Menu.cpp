@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "SimulatedAnnealing.h"
+
 void Menu::show_menu() {
     using namespace std;
     std::vector<std::vector<int>> init_vector;
@@ -30,8 +31,7 @@ void Menu::show_menu() {
             std::cin >> choice_s;
         }
         int choice = std::stoi(choice_s);
-        int maxTime;
-        int coolingCoefficient;
+
         switch (choice) {
             case 0:
                 exit(0);
@@ -67,24 +67,26 @@ void Menu::show_menu() {
 
 
 
-                    int sV, e, tem, iE;
+                    int sV, e, t, iE;
                     double a;
-                    std::cout << "Podaj startowy wierzcholek \n";
-                    cin >> sV;
-                    std::cout << "Podaj alfe \n";
-                    cin >> a;
-                    std::cout << "Podaj liczbe epok \n";
-                    cin >> e;
-                    std::cout << "Podaj liczbe iteracji w epoce \n";
-                    cin >> iE;
-                    std::cout << "Podaj startowa temperature \n";
-                    cin >> tem;
-                    simulatedAnnealing.beginSimulatedAnnealing(sV, a, e, iE, tem);
+//                    std::cout << "Podaj startowy wierzcholek \n";
+//                    cin >> sV;
+//                    std::cout << "Podaj alfe \n";
+//                    cin >> a;
+//                    std::cout << "Podaj liczbe epok \n";
+//                    cin >> e;
+//                    std::cout << "Podaj liczbe iteracji w epoce \n";
+//                    cin >> iE;
+//                    std::cout << "Podaj startowa temperature \n";
+//                    cin >> t;
+//                simulatedAnnealing.startAlgorithm(sV, a, e, iE, t);
+                simulatedAnnealing.startAlgorithm(0, 0.99, 100, 100, 100);
 
 
-                    cout<<endl<<simulatedAnnealing.getFinalCost()[0]<<endl;
-                    for(int i=0;i<graph.getNumOfVertices();i++)
+                    cout<<endl<<simulatedAnnealing.getFinalCost()<<endl;
+                    for(int i=0;i<graph.getNumOfVertices()+1;i++)
                 cout<<simulatedAnnealing.getGlobalPath()->at(i)<<"->";
+
 
 
 //                    simulatedAnnealing.showPath(0);
