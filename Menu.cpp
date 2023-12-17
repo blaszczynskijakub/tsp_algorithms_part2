@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "SimulatedAnnealing.h"
+#include "Data_parser.h"
 
 void Menu::show_menu() {
     using namespace std;
@@ -12,6 +13,7 @@ void Menu::show_menu() {
     std::string fromFile;
     std::string choice_s;
 
+    double stop;
 
     while (true) {
         std::cout
@@ -21,7 +23,9 @@ void Menu::show_menu() {
         std::cout << "2 - Wygeneruj macierz\n";
         std::cout << "3 - Wyswietl ostatnio wczytana z pliku lub wygenerowana macierz\n";
         std::cout << "4 - Uruchom symulowane wyrzazanie dla ostatnio wczytanej lub wygenerowanej macierzy i wyswietl wyniki\n";
-        std::cout << "5 - Uruchom bnb dla ostatnio wczytanej lub wygenerowanej macierzy i wyswietl wyniki\n";
+        std::cout << "5 - Podaj kryterium stopu\n";
+        std::cout << "6 - Ustaw wspolczynnik zmian temperatury\n";
+
 
         std::cout << ">";
 
@@ -31,15 +35,21 @@ void Menu::show_menu() {
             std::cin >> choice_s;
         }
         int choice = std::stoi(choice_s);
+        double a;
+
+
 
         switch (choice) {
             case 0:
                 exit(0);
-            case 1:
-
+            case 1: {
                 std::cout << "Podaj nazwe pliku do wczytania\n>";
                 std::cin >> choice_s;
-                graph.readGraph(choice_s);
+                Data_parser dataParser(choice_s);
+                dataParser.openFile();
+                graph.setGraph(dataParser.readFile());
+//                graph.readGraph(choice_s);
+            }
 
                 break;
             case 2:
@@ -68,7 +78,6 @@ void Menu::show_menu() {
 
 
                     int sV, e, t, iE;
-                    double a;
 //                    std::cout << "Podaj startowy wierzcholek \n";
 //                    cin >> sV;
 //                    std::cout << "Podaj alfe \n";
@@ -80,7 +89,7 @@ void Menu::show_menu() {
 //                    std::cout << "Podaj startowa temperature \n";
 //                    cin >> t;
 //                simulatedAnnealing.startAlgorithm(sV, a, e, iE, t);
-                simulatedAnnealing.startAlgorithm(0, 0.99, 100, 100, 100);
+                simulatedAnnealing.startAlgorithm(0, 0.80, 10000, 10000, 5000, stop );
 
 
                     cout<<endl<<simulatedAnnealing.getFinalCost()<<endl;
@@ -104,21 +113,12 @@ void Menu::show_menu() {
 
                 break;
             case 5: {
-                int choice_sss = 26;
+                cin>>stop;
+            }
 
-                graph.setGraph(generator.generate_data(choice_sss));
-
-                if (!graph.getGraph().empty()) {
-
-
-                    auto start = std::chrono::high_resolution_clock::now();
-                    auto end = std::chrono::high_resolution_clock::now();
-                    auto durationnn = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-                    cout<<endl<<durationnn.count();
-
-                } else {
-                    cout << "BRAK ostatnio wczytanej lub wygenerowanej macierzy!" << endl;
-                }
+                break;
+            case 6: {
+                cin>>a;
             }
 
 

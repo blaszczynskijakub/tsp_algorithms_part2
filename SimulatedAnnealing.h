@@ -14,8 +14,8 @@ private:
     vector<unsigned> *globalPath;
     void generatePath(int startingVertex, vector<unsigned int> *path, mt19937 &g);
     int calculateCost(vector<unsigned> path);
-    int changePath(vector<unsigned int> *path, int i, int j);
-    int returnRandomNeighbour(vector<unsigned int> *p2, pair<int, int> *c);
+    int changePath(vector<unsigned int> *path, int firstVertex, int secondVertex);
+    int tryAnotherPath(vector<unsigned int> *p2, pair<int, int> *c);
 public:
     int getFinalCost() const;
     void showPRD(int iter);
@@ -25,7 +25,6 @@ public:
     SimulatedAnnealing(std::vector<std::vector<int>> inputGraph);
 
 
-    SimulatedAnnealing(std::string fileName);
 
     ~SimulatedAnnealing();
 
@@ -41,6 +40,22 @@ public:
     void calcTemperature(const double alfa);
 
     double coolingFunction(const int delta) const;
+
+    void generatePath(int startingVertex, vector<unsigned int> *path);
+
+    void
+    startAlgorithm(int startingVertex, const double alfa, int numberOfEras, int iterationOfEra, int startingTemperature,
+                   double timebound);
+
+    void
+    mainLoop(const double alfa, int iterationOfEra, int numberOfEras, vector<unsigned int> *testedPath,
+             double timebound,
+             double time);
+
+    void
+    mainLoop(const double alfa, int iterationOfEra, int numberOfEras, vector<unsigned int> *testedPath,
+             double timebound,
+             double time, double start);
+
+    double calculateTemperature();
 };
-
-
