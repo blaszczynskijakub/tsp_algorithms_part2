@@ -87,7 +87,7 @@ void SimulatedAnnealing::mainLoop(const double alfa, int iterationOfEra, int num
     auto *edge = new pair<int, int>;
 
 
-    for (int i = 0; i < numberOfEras; i++) {
+    while(temperature>0.5) {
         for (int j = 0; j < iterationOfEra; j++) {
 
             localCost = localMinCost;
@@ -103,7 +103,7 @@ void SimulatedAnnealing::mainLoop(const double alfa, int iterationOfEra, int num
                 *globalPath = *testedPath;
                 //zmieniamy sciezke na nowa
                 swap(globalPath->at(edge->first), globalPath->at(edge->second));
-                showPRD(i * iterationOfEra + j);
+                showPRD(  iterationOfEra + j);
             }
 
             int delta = localCost - localMinCost;
@@ -269,4 +269,12 @@ int cost;
     buffer /= 10000;
 
     return (-1*buffer)/log(0.99);
+}
+
+double SimulatedAnnealing::getTemperature() const {
+    return temperature;
+}
+
+void SimulatedAnnealing::setTemperature(double temperature) {
+    SimulatedAnnealing::temperature = temperature;
 }

@@ -8,6 +8,13 @@ class SimulatedAnnealing {
 
 private:
     double temperature;
+public:
+    void setTemperature(double temperature);
+
+public:
+    double getTemperature() const;
+
+private:
     int finalCost;
     Graph *matrixWeights;
     std::vector<std::vector<int>> matrix;

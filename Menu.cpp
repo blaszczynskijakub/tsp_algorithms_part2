@@ -13,7 +13,7 @@ void Menu::show_menu() {
     std::string fromFile;
     std::string choice_s;
 
-    double stop;
+    double stop = 5;
 
     while (true) {
         std::cout
@@ -35,7 +35,7 @@ void Menu::show_menu() {
             std::cin >> choice_s;
         }
         int choice = std::stoi(choice_s);
-        double a;
+        double a =0.8;
 
 
 
@@ -89,25 +89,28 @@ void Menu::show_menu() {
 //                    std::cout << "Podaj startowa temperature \n";
 //                    cin >> t;
 //                simulatedAnnealing.startAlgorithm(sV, a, e, iE, t);
-                simulatedAnnealing.startAlgorithm(0, 0.80, 10000, 10000, 5000, stop );
 
 
-                    cout<<endl<<simulatedAnnealing.getFinalCost()<<endl;
-                    for(int i=0;i<graph.getNumOfVertices()+1;i++)
-                cout<<simulatedAnnealing.getGlobalPath()->at(i)<<"->";
 
 
 
 //                    simulatedAnnealing.showPath(0);
 //                cout<<endl<<simulatedAnnealing.getFinalCost()<<endl;
-
+//                    simulatedAnnealing.setTemperature(simulatedAnnealing.calculateTemperature());
 
                     auto start = std::chrono::high_resolution_clock::now();
-                    auto end = std::chrono::high_resolution_clock::now();
+                simulatedAnnealing.startAlgorithm(0, 0.99, 1000, 100000, 1000000, 120 );
+                auto end = std::chrono::high_resolution_clock::now();
                     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-                    if(duration.count()> 120000) {
-                        avg += 1;
-                    }
+
+
+                cout<<endl<<simulatedAnnealing.getFinalCost()<<endl;
+                for(int i=0;i<graph.getNumOfVertices()+1;i++)
+                    cout<<simulatedAnnealing.getGlobalPath()->at(i)<<"->";
+
+                    cout<<endl<<duration.count()<<endl;
+                    cout<<simulatedAnnealing.getTemperature()<<endl;
+
 //                }
             }
 
