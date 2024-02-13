@@ -59,16 +59,15 @@ std::vector<std::vector<int>> Data_parser::readFile() {
 }
 
 std::vector<std::vector<int>> Data_parser::write_to_matrix(int rows, int columns, std::vector<int> &v) {
-    std::vector<std::vector<int>> matrix(columns, std::vector<int>(rows)); // Initialize matrix with rows and columns
+    std::vector<std::vector<int>> matrix(columns, std::vector<int>(rows));
     auto iter = v.begin();
     for (int y = 0; y < columns; ++y) {
         for (int x = 0; x < rows; ++x) {
             if (iter != v.end()) {
-                matrix[y][x] = *iter; // Assign the element to the matrix
+                matrix[y][x] = *iter;
                 iter++;
             } else {
-                // Handle the case where there are not enough elements in the input vector
-                // You can throw an exception or handle it according to your application's logic
+
             }
         }
     }

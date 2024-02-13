@@ -6,15 +6,37 @@
 #include <vector>
 #include <chrono>
 #include "Graph.h"
-#include "Time_measure.h"
 #include "DataGenerator.h"
 
 class Menu {
 
 public:
+    Menu();
+
     void show_menu();
 
 private:
+    Graph graph;
+    double stop = 120;
+    double temperatureChangeCoefficient = 0.99;
+    double startingTemp = 100000;
+    int numberOfEras = 100000;
+    int iterationsEra = 100000;
+
+    void exit_program();
+
+    void load_matrix_from_file();
+
+    void generate_matrix();
+
+    void display_matrix();
+
+    void run_simulated_annealing();
+
+    void set_stop_criterion();
+
+    void set_temperature_change_coefficient();
+
     bool is_digit(std::string input);
 
 

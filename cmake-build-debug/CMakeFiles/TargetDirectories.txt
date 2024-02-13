@@ -1,3 +1,3 @@
-C:/Users/Jakub/CLionProjects/pea_project_2/tsp_algorithms_part2/cmake-build-debug/CMakeFiles/pea_projekt_1.dir
-C:/Users/Jakub/CLionProjects/pea_project_2/tsp_algorithms_part2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Jakub/CLionProjects/pea_project_2/tsp_algorithms_part2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/sa_algo_cv/tsp_algorithms_part2/cmake-build-debug/CMakeFiles/pea_projekt_1.dir
+D:/sa_algo_cv/tsp_algorithms_part2/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/sa_algo_cv/tsp_algorithms_part2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

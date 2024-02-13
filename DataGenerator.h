@@ -10,7 +10,6 @@ class DataGenerator {
 
 
 public:
-    void generateDataToFile(int min, int max, int cities);
     std::vector<std::vector<int>> generate_data(int matrix_size);
 };
 

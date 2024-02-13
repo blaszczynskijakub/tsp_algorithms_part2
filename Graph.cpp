@@ -10,12 +10,11 @@ Graph::Graph(std::vector<std::vector<int>> graph) {
 
 Graph::~Graph() = default;
 
-// Wczytuje graf z pliku
 bool Graph::readGraph(std::string fileName) {
 
     std::ifstream file(fileName);
     if (!file) {
-        std::cout << "Error: Unable to open a file\n"; // po polsk
+        std::cout << "Error: Unable to open a file\n";
     } else {
         file >> num_of_vertices;
         if (!file || this->num_of_vertices > 1) {
@@ -40,13 +39,11 @@ int Graph::getNumOfVertices() const {
     return num_of_vertices;
 }
 
-// Aktulizuje graf
 void Graph::setGraph(std::vector<std::vector<int>> new_graph) {
     this->graph_matrix = new_graph;
     this->num_of_vertices = graph_matrix.size();
 }
 
-// Metoda odpowiedzialna za przedzstawienie grafu w konsoli
 void Graph::printGraph() {
 
     if (!graph_matrix.empty()) {
@@ -62,14 +59,11 @@ void Graph::printGraph() {
 
 }
 
-// Zwraca graf
 std::vector<std::vector<int>> Graph::getGraph() {
     return this->graph_matrix;
 }
 
-//int Graph::getOptimum() const {
-//    return optimum;
-//}
+Graph::Graph() {}
 
 
 

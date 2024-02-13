@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Jakub/CLionProjects/pea_project_2/tsp_algorithms_part2
+# Install script for directory: D:/sa_algo_cv/tsp_algorithms_part2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Jakub/CLionProjects/pea_project_2/tsp_algorithms_part2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/sa_algo_cv/tsp_algorithms_part2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
