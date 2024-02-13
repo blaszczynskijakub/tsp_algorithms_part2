@@ -1,4 +1,0 @@
-"D:\clion\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S D:\sa_algo_cv\tsp_algorithms_part2 -B D:\sa_algo_cv\tsp_algorithms_part2\cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: D:/sa_algo_cv/tsp_algorithms_part2/cmake-build-debug
