@@ -9,3 +9,4 @@
 * Implementacja algorytmu symulowanego wyżarzania dla problemu komiwojażera
 * Pomiary czasu działania algorytmu dla różnych instancji problemu
 * Menu dla użytkownika
+* Generowanie losowej macierzy sąsiedztwa 
